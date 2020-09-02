@@ -60,4 +60,4 @@ setTimeout(function() {
       clearInterval(FollowInterval);
     }
   }, 240000);
-}, 180000);
+}, 5000);

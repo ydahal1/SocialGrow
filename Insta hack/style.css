@@ -1,9 +1,8 @@
-td {
-  border: 1px solid lightgray;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 10px;
-  margin: 0px;
+body {
+  width: 650px;
+}
+
+h1 {
+  font-size: 15px;
+  padding-left: 30px;
 }
