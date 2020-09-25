@@ -7,6 +7,22 @@ var loading = (function() {
     i = i > 3 ? 0 : i;
     console.clear();
     console.log(
+      "%c **********************************************************************",
+      "color: red; font-weight: bold"
+    );
+    console.log(
+      "%c *   COPYING, ALTERING OR DISTRIBUTING THIS SOFTWARE IS PROHIBITED    *",
+      "color: red; font-weight: bold"
+    );
+    console.log(
+      "%c *   USE OF THIS SOFTWARE MAY BE UNLAWFUL, USE IT ON YOUR OWN RISK    *",
+      "color: red; font-weight: bold"
+    );
+    console.log(
+      "%c **********************************************************************",
+      "color: red; font-weight: bold"
+    );
+    console.log(
       "%c Loading users ... " + h[i],
       "color: #7122fa; font-weight: bold"
     );
@@ -14,50 +30,88 @@ var loading = (function() {
   }, 800);
 })();
 
+let followLinks;
+let allBtns;
+
 //Clear progress bar
 setTimeout(function() {
   clearInterval(loading);
+
+  followLinks = document.querySelectorAll(".sqdOP");
+
+  allBtns = followLinks.length;
   console.clear();
+  console.log(
+    "%c ******************************************************************************",
+    "color: red; font-weight: bold"
+  );
+  console.log(
+    "%c *       COPYING, ALTERING OR DISTRIBUTING THIS SOFTWARE IS PROHIBITED        *",
+    "color: red; font-weight: bold"
+  );
+  console.log(
+    "%c *       USE OF THIS SOFTWARE MAY BE UNLAWFUL, USE IT ON YOUR OWN RISK        *",
+    "color: red; font-weight: bold"
+  );
+  console.log(
+    "%c ******************************************************************************",
+    "color: red; font-weight: bold"
+  );
+  console.log(
+    " %c Max Potential Follows : " + allBtns,
+    "color: #7122fa; font-weight: bold"
+  );
+
   console.log(
     "%c PROCESS RUNNING - DO NOT CLOSE THIS BROWSER",
     "color: #7122fa; font-weight: bold"
   );
-}, 180000);
+  execute();
+}, 10000);
 
-setTimeout(function() {
-  let followLinks = document.querySelectorAll(".sqdOP");
+//Creating time stamp
+new Date().toLocaleString();
+let counter = 0;
 
-  let allBtns = followLinks.length;
-  console.log(
-    " %c Max Potential Follows : " + allBtns,
-    "color: red; font-weight: bold"
-  );
+function execute() {
+  var min = 180,
+    max = 360;
+  var rand = Math.floor(Math.random() * (max - min + 1) + min);
 
-  //Careating time stamp
-  new Date().toLocaleString();
-  let counter = 1;
+  let d = new Date();
+  let currentHour = d.getHours();
+  let workingHours = [6, 7, 8, 9, 10, 15, 19, 20, 21, 22, 23];
 
-  //Refering table
-  var dataTable = document.getElementById("dataDisplayTable");
-
-  //Looping through and clicking buttons
-  var FollowInterval = setInterval(function() {
+  if (workingHours.includes(currentHour)) {
     if (counter <= allBtns) {
       followLinks[counter - 1].click();
       followLinks[counter - 1].style.cssText =
-        "background: red; color: white; border: white; padding: 5px";
+        "background: white; color: white; border: white; padding: 5px";
 
       console.log(
-        "%c" + new Date().toLocaleString() + " : " + counter + "/" + allBtns,
+        "%c" +
+          new Date().toLocaleString() +
+          " : " +
+          counter +
+          "/" +
+          allBtns +
+          "   --   " +
+          rand,
         "color: green; font-weight: bold"
       ); //Output this in front end
       counter += 1;
     } else {
       console.log(
-        "%c EXECUTION SUCESSFUL",
+        "%c EXECUTION COMPLETE, YOU MAY NOW CLOSE THIS BROWSER",
         "color: #7122fa; font-weight: bold"
       );
-      clearInterval(FollowInterval);
+      return;
     }
-  }, 240000);
-}, 5000);
+  } else {
+    console.log(
+      "%c IT IS NAP TIME. WILL WAKE UP AND CONTINUE WITH MY TASK LATER",
+      "color: gray; font-weight: bold"
+    );
+  }
+  setTimeout(execute, rand * 1000);
+}
