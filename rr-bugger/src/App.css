@@ -1,0 +1,97 @@
+.App {
+  background: lightgray;
+}
+.bugsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.card {
+  border: 1px solid gray;
+  padding: 20px;
+  margin: 20px;
+  width: 400px;
+}
+
+.btnActions {
+  text-align: right;
+}
+
+.btnActions > button {
+  margin-left: 3px;
+  padding: 4px;
+  border-radius: 0px;
+  border: 1px solid black;
+  color: black;
+  text-transform: uppercase;
+  background: white;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.btnActions > button:hover {
+  background: black;
+  color: white;
+}
+.navigationBar {
+  background: gray;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigationBar > p {
+  font-weight: bold;
+  color: white;
+}
+.navigationBar > button {
+  background: gray;
+  border: 1px solid white;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.navigationBar > button:hover {
+  background: black;
+  color: white;
+}
+
+.inputModal {
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  width: 90%;
+  padding: 15px;
+  margin-top: 80px;
+  background: lightgray;
+}
+
+.modalBtn {
+  padding: 4px;
+  background: white;
+  text-transform: uppercase;
+  border: 1px solid gray;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.modalBtn:hover {
+  background: black;
+  text-transform: uppercase;
+  border: 1px solid black;
+  color: white;
+}
+
+.modalClose {
+  background: black;
+  color: white;
+}
+
+.modalClose:hover {
+  background: white;
+  color: black;
+}
